@@ -1,0 +1,62 @@
+<idea-plugin>
+    <id>com.maihaoche.cx5</id>
+    <name>ButterKnifeKiller</name>
+    <version>1.0</version>
+    <vendor email="yangyang1@maihaoche.com" url="http://b.maihaoche.com/">MaiHaoChe.</vendor>
+
+    <!--插件简介-->
+    <description><![CDATA[
+    This is a tool to remove butterknife codes.
+    How to use:
+    First, open the file with butterkinfe in the editor and choose the codes to be replaced;
+    Second, right click and the popup menu will contain a "CX5" item. Click the "CX5" and choose which situation you should use.
+
+    There are totally three situations,"Activity","Fragment" and "ViewHolder" which convert codes with "findViewById","contentView.findViewById" and "itemView.findViewById".
+
+    After the codes converted, a row of function call codes is generated,e.g. "findView()" for activity or "findView(itemView)" for viewHolder. This function call should be used to
+    replace "ButterKnife.bind(this)" or "ButterKnife.bind(this,itemView)" with your own.
+
+     <em>MaiHaoChe</em>
+    ]]></description>
+
+    <!-- 版本更新信息-->
+    <change-notes><![CDATA[
+      Version 1.0
+      This version provide three situations：ViewHolder，Fragment，Activity
+      and support "@BindView(R.id.resource_id)","@OnClick(R.id.resource_id)","@BindView(R2.id.resource_id)" and "@OnClick(R2.id.resource_id)".
+      Note: "@BindViews" and others annotations are not supported. You can fork and make it done which is not complicated.
+      <br>
+      <em>MaiHaoChe</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="161.0"/>
+    <!--<idea-version since-build="145.1617.8"/>-->
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <!--扩展组件注册 要是用到applicationConfigurable即项目配置等就在这里注册-->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+
+    <actions>
+        <group id="CX5ActionGroupId"
+               class="com.maihaoche.cx5.actions.KBKActionGroup"
+               text="CX5" popup="true" icon="/icons/ic_cx5.png">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+
+            <action id="KBKActivityID" class="com.maihaoche.cx5.actions.KBKActivity"
+                    text="in Activity"/>
+            <action id="KBKFragmentID" class="com.maihaoche.cx5.actions.KBKFragment"
+                    text="in Fragment"/>
+            <action id="KBKViewHolderID" class="com.maihaoche.cx5.actions.KBKViewHolder"
+                    text="in ViewHolder"/>
+        </group>
+    </actions>
+
+</idea-plugin>
