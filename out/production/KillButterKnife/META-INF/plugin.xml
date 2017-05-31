@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.maihaoche.cx5</id>
     <name>ButterKnifeKiller</name>
-    <version>1.0</version>
+    <version>1.2</version>
     <vendor email="yangyang1@maihaoche.com" url="http://b.maihaoche.com/">MaiHaoChe.</vendor>
 
     <!--插件简介-->
@@ -16,16 +16,19 @@
     After the codes converted, a row of function call codes is generated,e.g. "findView()" for activity or "findView(itemView)" for viewHolder. This function call should be used to
     replace "ButterKnife.bind(this)" or "ButterKnife.bind(this,itemView)" with your own.
 
+    <br>
+     Git：https://github.com/WangYangYang2014/KillButterKnife
+    <br>
+
      <em>MaiHaoChe</em>
     ]]></description>
 
     <!-- 版本更新信息-->
     <change-notes><![CDATA[
-      Version 1.0
       This version provide three situations：ViewHolder，Fragment，Activity
       and support "@BindView(R.id.resource_id)","@OnClick(R.id.resource_id)","@BindView(R2.id.resource_id)" and "@OnClick(R2.id.resource_id)".
       Note: "@BindViews" and others annotations are not supported. You can fork and make it done which is not complicated.
-      <br>
+
       <em>MaiHaoChe</em>
     ]]>
     </change-notes>
