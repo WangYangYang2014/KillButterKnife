@@ -1,0 +1,2 @@
+# KillButterKnife
+将ButterKnife的代码转换为安卓接口的插件
